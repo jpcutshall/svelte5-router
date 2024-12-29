@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { getContext, onDestroy, type Component } from "svelte";
-  import { ROUTER, useRouter } from "../../lib/contexts.js";
+  import { onMount, onDestroy } from "svelte";
+  import { useRouter } from "../../lib/contexts.js";
   import { canUseDOM } from "../../lib/utils.js";
   import type { RouteProps, RouteParams } from "./Route.js";
 
@@ -22,38 +22,25 @@
     if ($activeRoute && $activeRoute.route === route) {
       routeParams = $activeRoute.params;
 
-      // const { component: c, path, ...rest } = $$props;
-      routeProps = rest;
-
-      // TODO fix component prop
-      // if (component) {
-      //   if (component.toString().startsWith("class ")) component = component;
-      //   else component = component();
-      // }
-
       canUseDOM() && !$activeRoute.preserveScroll && window?.scrollTo(0, 0);
     }
   });
 
-  registerRoute(route);
+  onMount(() => {
+    registerRoute(route);
+  });
 
   onDestroy(() => {
     unregisterRoute(route);
   });
+
+  let PropComponent = component;
 </script>
 
 {#if $activeRoute && $activeRoute.route === route}
-  {#if component}
-    {#await component then ResolvedComponent}
-      <!-- <svelte:component
-        this={resolvedComponent?.default || resolvedComponent}
-        {...routeParams}
-        {...routeProps}
-      /> -->
-      <ResolvedComponent {...routeParams} {...routeProps} />
-    {/await}
+  {#if PropComponent}
+    <PropComponent {...routeParams} {...rest} />
   {:else}
-    <!-- <slot params={routeParams} /> -->
     {@render children?.(routeParams)}
   {/if}
 {/if}

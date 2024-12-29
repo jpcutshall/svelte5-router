@@ -149,6 +149,6 @@ const createMemorySource = (
 const globalHistory = createHistory(
   canUseDOM() ? window : (createMemorySource() as unknown as typeof window)
 );
-const { navigate } = globalHistory;
+const { navigate, listen } = globalHistory;
 
-export { globalHistory, navigate, createHistory, createMemorySource };
+export { globalHistory, navigate, listen, createHistory, createMemorySource };
