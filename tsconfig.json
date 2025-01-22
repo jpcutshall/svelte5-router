@@ -18,6 +18,11 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.svelte",
+    "tests/**/*.{js,ts,svelte}"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
