@@ -6,3 +6,4 @@ example/public/*
 pnpm-lock.yaml
 .idea
 .DS_Store
+.svelte-kit
