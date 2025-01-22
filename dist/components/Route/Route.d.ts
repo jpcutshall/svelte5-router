@@ -1,10 +1,7 @@
 import type { Component, Snippet } from "svelte";
-type AsyncSvelteComponent = () => Promise<{
-    default: Component;
-}>;
 export type RouteProps = {
     path?: string;
-    component?: Component | AsyncSvelteComponent;
+    component?: Component<any, Record<string, any>>;
     children?: Snippet<[RouteParams]>;
     [additionalProp: string]: unknown;
 };
@@ -25,5 +22,4 @@ export type RouteLocation = {
 export type RouteParams = {
     [param: string]: string;
 };
-export {};
 //# sourceMappingURL=Route.d.ts.map

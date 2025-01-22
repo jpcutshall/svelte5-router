@@ -53,6 +53,6 @@ declare const navigate: (to: string, options?: {
     state?: { [k in string | number]: unknown; };
     preserveScroll?: boolean;
     blurActiveElement?: boolean;
-}) => void;
-export { globalHistory, navigate, createHistory, createMemorySource };
+}) => void, listen: (listener: Listener) => () => void;
+export { globalHistory, navigate, listen, createHistory, createMemorySource };
 //# sourceMappingURL=history.d.ts.map
