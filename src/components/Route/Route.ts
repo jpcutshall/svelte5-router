@@ -1,7 +1,7 @@
 import type { Component, Snippet } from "svelte";
 
 export type AsyncComponent = () => Promise<{
-	default: Component<any, Record<string, unknown>>;
+  default: Component<any, Record<string, unknown>>;
 }>;
 
 /**
@@ -20,11 +20,11 @@ export type AsyncComponent = () => Promise<{
  * @returns an instance of an AsyncComponent
  */
 export function dynamic(p: Promise<unknown>): AsyncComponent {
-	const loader = function loaderComponent() {
-		return p as Promise<{ default: Component<any, Record<string, unknown>> }>;
-	};
-	loader.prototype.name = "dynComponent";
-	return loader;
+  const loader = function loaderComponent() {
+    return p as Promise<{ default: Component<any, Record<string, unknown>> }>;
+  };
+  loader.prototype.name = "dynComponent";
+  return loader;
 }
 
 /**
@@ -34,33 +34,33 @@ export function dynamic(p: Promise<unknown>): AsyncComponent {
  * @returns
  */
 export function isAsync(fn: Function | undefined): fn is AsyncComponent {
-	if (!fn) return false;
-	return "name" in fn.prototype && fn.prototype.name === "dynComponent";
+  if (!fn) return false;
+  return "name" in fn.prototype && fn.prototype.name === "dynComponent";
 }
 
 export type RouteProps = {
-	path?: string;
-	component?: Component<any, Record<string, any>>; //| AsyncSvelteComponent;
-	children?: Snippet<[RouteParams]>;
-	[additionalProp: string]: unknown;
+  path?: string;
+  component?: Component<any, Record<string, any>>;
+  children?: Snippet<[RouteParams]>;
+  [additionalProp: string]: unknown;
 };
 
 export type RouteSlots = {
-	default: {
-		location: RouteLocation;
-		params: RouteParams;
-	};
+  default: {
+    location: RouteLocation;
+    params: RouteParams;
+  };
 };
 
 export type RouteLocation = {
-	pathname: string;
-	search: string;
-	hash?: string;
-	state: {
-		[k in string | number]: unknown;
-	};
+  pathname: string;
+  search: string;
+  hash?: string;
+  state: {
+    [k in string | number]: unknown;
+  };
 };
 
 export type RouteParams = {
-	[param: string]: string;
+  [param: string]: string;
 };
