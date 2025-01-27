@@ -24,7 +24,7 @@ npm i -D svelte5-router
   import About from "./routes/About.svelte";
   import Blog from "./routes/Blog.svelte";
 
-  export let url = "";
+  export let url = $state("");
 </script>
 
 <Router {url}>
@@ -158,7 +158,7 @@ The argument supplied must be a function that receives a Location object. Use th
 This function is meant to be used outside a Svelte component. The alternative function is `useLocation`, `useRouter` and `useHistory` where it uses Svelte context to retrieve location, router or history object.
 
 ```js
-import { listen as addListener } from 'svelte-routing';
+import { listen as addListener } from 'svelte5-router';
 
 function init() {
     addListener(({ location }) => {
@@ -254,6 +254,6 @@ Unless you explicitly state otherwise, any contribution intentionally submitted
 for this project by you, shall be licensed as **MIT**, without any additional
 terms or conditions. [**Code of Conduct**](CODE_OF_CONDUCT.md).
 
-[npm]: https://img.shields.io/npm/v/svelte-routing.svg
+[npm]: https://img.shields.io/npm/v/svelte5-router.svg
 [npm-url]: https://npmjs.com/package/svelte5-router
 [changelog-url]: https://github.com/jpcutshall/svelte5-router/blob/master/CHANGELOG.md
