@@ -10,7 +10,7 @@
  *   <Route path="/about" component={AboutRoute} />
  * </Router>
  * ```
- * @param p Promuse
+ * @param p an instance of Promise
  * @returns an instance of an AsyncComponent
  */
 export function dynamic(p) {
