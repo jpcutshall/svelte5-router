@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, onDestroy } from "svelte";
+  import { onDestroy } from "svelte";
   import { useRouter } from "../../lib/contexts.js";
   import { canUseDOM } from "../../lib/utils.js";
   import type { RouteProps, RouteParams } from "./Route.js";
@@ -26,9 +26,7 @@
     }
   });
 
-  onMount(() => {
-    registerRoute(route);
-  });
+  registerRoute(route);
 
   onDestroy(() => {
     unregisterRoute(route);
