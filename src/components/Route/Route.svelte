@@ -28,7 +28,12 @@
 
   onMount(() => {
     registerRoute(route);
-  });
+  })
+
+  // Handle SSR mode 
+  if (typeof window === "undefined") {
+    registerRoute(route);
+  }
 
   onDestroy(() => {
     unregisterRoute(route);
