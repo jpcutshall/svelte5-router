@@ -17,7 +17,7 @@ export const link = (node) => {
                 hostMatches(anchor) &&
                 shouldNavigate(event)) {
                 event.preventDefault();
-                navigate(anchor.pathname + anchor.search, {
+                navigate(anchor.pathname + anchor.hash + anchor.search, {
                     replace: anchor.hasAttribute("replace"),
                     preserveScroll: anchor.hasAttribute("preserveScroll"),
                 });
