@@ -20,7 +20,7 @@ export const link = (node: HTMLElement) => {
         shouldNavigate(event)
       ) {
         event.preventDefault();
-        navigate(anchor.pathname + anchor.hash + anchor.search, {
+        navigate(anchor.pathname + anchor.search, {
           replace: anchor.hasAttribute("replace"),
           preserveScroll: anchor.hasAttribute("preserveScroll"),
         });

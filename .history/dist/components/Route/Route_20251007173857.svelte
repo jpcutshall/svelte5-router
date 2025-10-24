@@ -28,7 +28,7 @@
 
   onMount(() => {
     registerRoute(route);
-  })
+  });
 
   // Handle SSR mode 
   if (typeof window === "undefined") {
