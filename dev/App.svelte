@@ -1,4 +1,3 @@
-<!-- App.svelte -->
 <script>
   import { dynamic, Router, Link, Route } from "svelte5-router";
   import Home from "./routes/Home.svelte";

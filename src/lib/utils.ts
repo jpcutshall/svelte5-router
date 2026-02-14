@@ -115,6 +115,7 @@ const pick = (routes: RouteConfig[], uri: string) => {
           .slice(index)
           .map(decodeURIComponent)
           .join("/");
+        index = uriSegments.length;
         break;
       }
 

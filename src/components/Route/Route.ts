@@ -35,7 +35,7 @@ export function dynamic(p: Promise<unknown>): AsyncComponent {
  */
 export function isAsync(fn: Function | undefined): fn is AsyncComponent {
   if (!fn) return false;
-  return "name" in fn.prototype && fn.prototype.name === "dynComponent";
+  return !!(fn.prototype && "name" in fn.prototype && fn.prototype.name === "dynComponent");
 }
 
 export type RouteProps = {

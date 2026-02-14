@@ -131,13 +131,17 @@ const createMemorySource = (
         return states[index];
       },
       pushState(state: Record<string, unknown>, _: unknown, uri: string) {
-        const [pathname, search = ""] = uri.split("?");
+        const parts = uri.split("?");
+        const pathname = parts[0];
+        const search = parts.length > 1 ? "?" + parts[1] : "";
         index++;
         stack.push({ pathname, search });
         states.push(state);
       },
       replaceState(state: Record<string, unknown>, _: unknown, uri: string) {
-        const [pathname, search = ""] = uri.split("?");
+        const parts = uri.split("?");
+        const pathname = parts[0];
+        const search = parts.length > 1 ? "?" + parts[1] : "";
         stack[index] = { pathname, search };
         states[index] = state;
       },
