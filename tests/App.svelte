@@ -1,16 +1,17 @@
 <!-- App.svelte -->
 <script>
-  import { Router, Link, Route } from "svelte5-router";
+  import { dynamic, Router, Link, Route } from "svelte5-router";
   import Home from "./routes/Home.svelte";
-  import About from "./routes/About.svelte";
   import Blog from "./routes/Blog.svelte";
   import BlogPost from "./routes/BlogPost.svelte";
 
-  export let url = "";
+  const About = dynamic(import("./routes/About.svelte"));
+
+  let url = $state("");
 </script>
 
 <Router {url}>
-  <nav>
+  <nav class="menu">
     <Link to="/">Home</Link>
     <Link to="/about">About</Link>
     <Link to="/blog">Blog</Link>
