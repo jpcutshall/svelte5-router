@@ -22,7 +22,7 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.svelte",
-    "tests/**/*.{js,ts,svelte}"
+    "dev/**/*.{js,ts,svelte}"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

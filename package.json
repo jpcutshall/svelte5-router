@@ -8,7 +8,7 @@
   "scripts": {
     "package": "svelte-package",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "vite -c vite.config.ts --force tests/"
+    "dev": "vite -c vite.config.ts --force dev/"
   },
   "keywords": [
     "svelte routing",
