@@ -10,3 +10,4 @@ dist/*
 .svelte-kit/*
 coverage
 coverage/*
+coverage/index.html
