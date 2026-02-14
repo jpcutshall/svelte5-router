@@ -9,3 +9,4 @@ example/public/*
 dist/*
 .svelte-kit/*
 coverage
+coverage/*
