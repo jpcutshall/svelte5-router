@@ -9,7 +9,9 @@
     "package": "svelte-package",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "vite -c vite.config.ts --force dev/",
-    "test": "vitest run"
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm test && pnpm run package"
   },
   "keywords": [
     "svelte routing",
@@ -38,9 +40,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js",
-      "default": "./dist/index.js",
-      "prepublishOnly": "pnpm test && pnpm run package"
-
+      "default": "./dist/index.js"
     }
   },
   "files": [
@@ -54,6 +54,7 @@
     "@sveltejs/package": "^2.3.7",
     "@sveltejs/vite-plugin-svelte": "^6.2.4",
     "@tsconfig/svelte": "^5.0.4",
+    "@vitest/coverage-v8": "4.0.18",
     "jsdom": "^25.0.1",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.3",
