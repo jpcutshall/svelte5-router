@@ -22,5 +22,20 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check
-      - run: pnpm run test
+
+      - name: Run tests (PRs)
+        if: github.ref != 'refs/heads/master'
+        run: pnpm run test
+
+      - name: Run tests with coverage (master only)
+        if: github.ref == 'refs/heads/master'
+        run: pnpm run test -- --coverage
+
+      - name: Upload coverage report (master only)
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage
+
       - run: pnpm run package
